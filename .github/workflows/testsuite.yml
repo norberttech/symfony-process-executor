@@ -49,5 +49,5 @@ jobs:
         run: composer update
 
       - name: Run tests
-        run: composer test
+        run: composer tests
 
