@@ -21,7 +21,7 @@ $processes = new ProcessPool(
 
 $executor = new SynchronousExecutor($processes);
 
-$executor->execute(Time::fromMilliseconds(100), Time::fromMilliseconds(3000));
+$executor->execute(Time::fromMilliseconds(10), Time::fromMilliseconds(3000));
 
 $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     var_dump($processWrapper->exitCode());
