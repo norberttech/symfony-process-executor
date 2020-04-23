@@ -1,5 +1,7 @@
 # Symfony Process Executor 
 
+![Tests](https://github.com/norberttech/symfony-process-executor/workflows/Tests/badge.svg?branch=master)
+
 Tiny library that simplifies launching multiple processes in parallel (or not). 
 
 ### Installation
