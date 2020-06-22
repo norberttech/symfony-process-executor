@@ -13,63 +13,55 @@ declare(strict_types=1);
 
 namespace NorbertTech\SymfonyProcessExecutor;
 
+use Aeon\Calendar\Stopwatch;
+use Aeon\Calendar\TimeUnit;
 use NorbertTech\SymfonyProcessExecutor\Exception\Exception;
 
 final class SynchronousExecutor
 {
-    /**
-     * @var ProcessPool
-     */
-    private $pool;
+    private ProcessPool $pool;
 
-    /**
-     * @var null|float
-     */
-    private $startedAt = null;
-
-    /**
-     * @var null|float
-     */
-    private $finishedAt = null;
+    private Stopwatch $stopwatch;
 
     public function __construct(ProcessPool $pool)
     {
         $this->pool = $pool;
+        $this->stopwatch = new Stopwatch();
     }
 
     /**
-     * @param Time|null $sleep - sleep time between checking out running processes
-     * @param Time|null $timeout - timeout, after this time all processes are going to be killed
+     * @param TimeUnit|null $sleep - sleep time between checking out running processes
+     * @param TimeUnit|null $timeout - timeout, after this time all processes are going to be killed
      * @throws Exception
      */
-    public function execute(Time $sleep = null, Time $timeout = null) : void
+    public function execute(TimeUnit $sleep = null, TimeUnit $timeout = null) : void
     {
-        if ($this->startedAt) {
+        if ($this->stopwatch->isStarted()) {
             throw new Exception('SynchronousExecutor already started');
         }
 
-        $sleep = $sleep ?: Time::fromMilliseconds(100);
-        $total = Time::fromMicroseconds(0);
+        $sleep = $sleep ?: TimeUnit::milliseconds(100);
+        $total = TimeUnit::seconds(0);
+        $this->stopwatch->start();
 
-        $this->startedAt = microtime(true);
 
         $this->pool->each(function (ProcessWrapper $process) use ($sleep, &$total, $timeout) {
             $process->start();
             $process->check();
 
             if ($timeout) {
-                if ($total->greaterThan($timeout)) {
+                if ($total->isGreaterThan($timeout)) {
                     $process->kill();
                 }
             }
 
             while (!$process->finished()) {
-                usleep($sleep->microseconds());
+                \Aeon\Calendar\System\sleep($sleep);
 
                 $total = $total->add($sleep);
 
                 if ($timeout) {
-                    if ($total->greaterThan($timeout)) {
+                    if ($total->isGreaterThan($timeout)) {
                         $process->kill();
                     }
                 }
@@ -78,26 +70,16 @@ final class SynchronousExecutor
             }
         });
 
-        $this->finishedAt = microtime(true);
+        $this->stopwatch->stop();
     }
 
-    /**
-     * @return ProcessPool
-     */
     public function pool() : ProcessPool
     {
         return $this->pool;
     }
 
-    /**
-     * @return Time|null
-     */
-    public function executionTime() : ?Time
+    public function executionTime() : TimeUnit
     {
-        if ($this->startedAt !== null && $this->finishedAt !== null) {
-            return Time::fromSecondMicrosecondsFloat($this->finishedAt - $this->startedAt);
-        }
-
-        return null;
+        return $this->stopwatch->totalElapsedTime();
     }
 }

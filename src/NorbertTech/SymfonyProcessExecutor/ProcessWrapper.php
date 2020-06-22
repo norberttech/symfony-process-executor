@@ -13,49 +13,29 @@ declare(strict_types=1);
 
 namespace NorbertTech\SymfonyProcessExecutor;
 
+use Aeon\Calendar\Stopwatch;
+use Aeon\Calendar\TimeUnit;
 use NorbertTech\SymfonyProcessExecutor\Exception\Exception;
 use Symfony\Component\Process\Process;
 
 final class ProcessWrapper
 {
-    /**
-     * @var Process
-     */
-    private $process;
+    private Process $process;
 
-    /**
-     * @var null|string
-     */
-    private $output = null;
+    private ?string $output = null;
 
-    /**
-     * @var null|int
-     */
-    private $exitCode = null;
+    private ?int $exitCode = null;
 
-    /**
-     * @var null|int
-     */
-    private $pid = null;
+    private ?int $pid = null;
 
-    /**
-     * @var null|float
-     */
-    private $startedAt = null;
-
-    /**
-     * @var null|float
-     */
-    private $finishedAt = null;
+    private Stopwatch $stopwatch;
 
     public function __construct(Process $process)
     {
         $this->process = $process;
+        $this->stopwatch = new Stopwatch();
     }
 
-    /**
-     * @return bool
-     */
     public function started() : bool
     {
         return $this->pid !== null;
@@ -66,17 +46,11 @@ final class ProcessWrapper
         return $this->exitCode !== null;
     }
 
-    /**
-     * @return Process
-     */
     public function process() : Process
     {
         return $this->process;
     }
 
-    /**
-     * @throws Exception
-     */
     public function start() : void
     {
         if ($this->started()) {
@@ -87,7 +61,7 @@ final class ProcessWrapper
             return ;
         }
 
-        $this->startedAt = microtime(true);
+        $this->stopwatch->start();
         $this->process->start();
         $this->pid = $this->process->getPid();
 
@@ -106,9 +80,9 @@ final class ProcessWrapper
             return ;
         }
 
-        $this->finishedAt = microtime(true);
         $this->exitCode = $this->process->stop(0);
         $this->output = $this->process->getOutput();
+        $this->stopwatch->stop();
     }
 
     public function check() : void
@@ -125,9 +99,9 @@ final class ProcessWrapper
             return ;
         }
 
-        $this->finishedAt = microtime(true);
         $this->output = $this->process->getOutput();
         $this->exitCode = $this->process->getExitCode();
+        $this->stopwatch->stop();
     }
 
     public function output() : ?string
@@ -145,15 +119,8 @@ final class ProcessWrapper
         return $this->pid;
     }
 
-    /**
-     * @return Time|null
-     */
-    public function executionTime() : ?Time
+    public function executionTime() : TimeUnit
     {
-        if (!$this->finished()) {
-            return null;
-        }
-
-        return Time::fromSecondMicrosecondsFloat($this->finishedAt - $this->startedAt);
+        return $this->stopwatch->totalElapsedTime();
     }
 }

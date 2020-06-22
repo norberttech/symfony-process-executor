@@ -18,9 +18,9 @@ use Symfony\Component\Process\Process;
 final class ProcessPool
 {
     /**
-     * @var ProcessWrapper[]
+     * @var array<int, ProcessWrapper>
      */
-    private $processes;
+    private array $processes;
 
     public function __construct(Process ...$processes)
     {

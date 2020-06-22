@@ -25,13 +25,13 @@ $executor->execute();
 $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     var_dump($processWrapper->exitCode());
     var_dump(trim($processWrapper->output()));
-    var_dump($processWrapper->executionTime()->seconds());
+    var_dump($processWrapper->executionTime()->inSeconds());
     echo "----\n";
 });
 
 echo sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
 echo sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
-echo sprintf("Total execution time [s]: %d\n", $executor->executionTime()->seconds());
+echo sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSeconds());
 
 --EXPECT--
 int(0)
