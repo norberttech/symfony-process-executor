@@ -15,6 +15,11 @@ composer require norberttech/symfony-process-executor
 ```php
 <?php
 
+use NorbertTech\SymfonyProcessExecutor\AsynchronousExecutor;
+use NorbertTech\SymfonyProcessExecutor\ProcessPool;
+use NorbertTech\SymfonyProcessExecutor\ProcessWrapper;
+use Symfony\Component\Process\Process;
+
 $processes = new ProcessPool(
     Process::fromShellCommandline('sleep 1 && echo 1'),
     Process::fromShellCommandline('sleep 2 && echo 2'),
@@ -32,15 +37,15 @@ $executor->waitForAllToFinish();
 $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     var_dump($processWrapper->exitCode());
     var_dump(\trim($processWrapper->output()));
-    var_dump($processWrapper->executionTime()->seconds());
-    var_dump($processWrapper->executionTime()->milliseconds());
-    var_dump($processWrapper->executionTime()->microseconds());
+    var_dump($processWrapper->executionTime()->inSeconds());
+    var_dump($processWrapper->executionTime()->inMilliseconds());
+    var_dump($processWrapper->executionTime()->microsecond());
     echo "----\n";
 });
 
 echo \sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
 echo \sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
-echo \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->seconds());
+echo \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSecondsPreciseString());
 ```
 
 Output: 
