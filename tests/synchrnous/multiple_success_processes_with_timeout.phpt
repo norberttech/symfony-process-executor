@@ -13,11 +13,11 @@ require __DIR__ . '/../../vendor/autoload.php';
 
 if (\strncasecmp(PHP_OS, 'WIN', 3) == 0) {
     $processes = new ProcessPool(
-        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 1; echo 1') : new Process('sleep 1; echo 1'),
-        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 1; echo 2') : new Process('sleep 1; echo 2'),
-        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 1; echo 3') : new Process('sleep 1; echo 3'),
-        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 1; echo 4') : new Process('sleep 1; echo 4'),
-        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 1; echo 5') : new Process('sleep 1; echo 5'),
+        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('ping 127.0.0.1 -n 1 > NUL && echo 1') : new Process('ping 127.0.0.1 -n 1 > NUL && echo 1'),
+        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('ping 127.0.0.1 -n 2 > NUL && echo 2') : new Process('ping 127.0.0.1 -n 2 > NUL && echo 2'),
+        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('ping 127.0.0.1 -n 3 > NUL && echo 3') : new Process('ping 127.0.0.1 -n 3 > NUL && echo 3'),
+        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('ping 127.0.0.1 -n 4 > NUL && echo 4') : new Process('ping 127.0.0.1 -n 4 > NUL && echo 4'),
+        method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('ping 127.0.0.1 -n 5 > NUL && echo 5') : new Process('ping 127.0.0.1 -n 5 > NUL && echo 5'),
     );
 } else {
     $processes = new ProcessPool(
