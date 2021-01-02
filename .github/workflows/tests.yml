@@ -24,7 +24,6 @@ jobs:
           - "7.4"
         operating-system:
           - "ubuntu-latest"
-          # - "windows-latest" - removed since I can't make the "sleep 1 && echo 1" work at windows
 
     steps:
       - name: "Checkout"
@@ -58,6 +57,9 @@ jobs:
       - name: "Install locked dependencies"
         if: ${{ matrix.dependencies == 'locked' }}
         run: "composer install --no-interaction --no-progress --no-suggest"
+
+      - name: "Install tools"
+        run: "phive install --trust-gpg-keys E82B2FB314E9906E,CF1A108D0E7AE720,8A03EA3B385DBAA1,4AA394086372C20A --force-accept-unsigned"
 
       - name: "Tests"
         run: "composer test"
