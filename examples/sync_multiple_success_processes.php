@@ -41,4 +41,4 @@ $executor->pool()->each(function (ProcessWrapper $processWrapper) {
 
 echo sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
 echo sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
-echo sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSecondsPreciseString());
+echo sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSecondsPrecise());
