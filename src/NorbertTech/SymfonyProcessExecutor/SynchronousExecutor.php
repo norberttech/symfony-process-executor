@@ -56,7 +56,7 @@ final class SynchronousExecutor
             }
 
             while (!$process->finished()) {
-                \Aeon\Calendar\System\sleep($sleep);
+                \Aeon\Sleep\sleep($sleep);
 
                 $total = $total->add($sleep);
 

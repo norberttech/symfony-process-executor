@@ -8,5 +8,4 @@
             <directory suffix=".phpt">tests</directory>
         </testsuite>
     </testsuites>
-    <!-- ... -->
 </phpunit>

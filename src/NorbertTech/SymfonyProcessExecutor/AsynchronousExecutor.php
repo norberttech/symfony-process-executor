@@ -57,7 +57,7 @@ final class AsynchronousExecutor
         $total = TimeUnit::seconds(0);
 
         while ($this->pool->unfinished() > 0) {
-            \Aeon\Calendar\System\sleep($sleep);
+            \Aeon\Sleep\sleep($sleep);
 
             $total = $total->add($sleep);
 
