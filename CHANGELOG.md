@@ -1,3 +1,12 @@
+## [Unreleased] - 2021-01-25
+
+### Added
+- [#3](https://github.com/norberttech/symfony-process-executor/pull/3) - **aeon-php/automation integraiton** - [@norberttech](https://github.com/norberttech)
+
+### Fixed
+- [63ac6a](https://github.com/norberttech/symfony-process-executor/commit/63ac6adde0792465a2c01473954897e0644e7bcb) - **invalid target for changelog-update** - [@norberttech](https://github.com/norberttech)
+- [#3](https://github.com/norberttech/symfony-process-executor/pull/3) - **broken aeon-php/sleep dependency** - [@norberttech](https://github.com/norberttech)
+
 ## [2.0.3] - 2021-01-02
 
 ### Changed
