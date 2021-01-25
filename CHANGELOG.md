@@ -1,4 +1,4 @@
-## [Unreleased] - 2021-01-25
+## [2.0.4] - 2021-01-25
 
 ### Added
 - [#3](https://github.com/norberttech/symfony-process-executor/pull/3) - **aeon-php/automation integraiton** - [@norberttech](https://github.com/norberttech)
