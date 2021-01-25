@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90e9506d235c406c2e0b997dd5acdffa",
+    "content-hash": "ad7f01d84ada6eea2744eaba9bfacf2b",
     "packages": [
         {
             "name": "aeon-php/calendar",
-            "version": "0.13.2",
+            "version": "0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aeon-php/calendar.git",
-                "reference": "3f9aac30e5bdcfb7817e9c40f4e789f291f33335"
+                "reference": "02b6981d89f53f24a25f13500a37c556cf80e24b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aeon-php/calendar/zipball/3f9aac30e5bdcfb7817e9c40f4e789f291f33335",
-                "reference": "3f9aac30e5bdcfb7817e9c40f4e789f291f33335",
+                "url": "https://api.github.com/repos/aeon-php/calendar/zipball/02b6981d89f53f24a25f13500a37c556cf80e24b",
+                "reference": "02b6981d89f53f24a25f13500a37c556cf80e24b",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
             ],
             "support": {
                 "issues": "https://github.com/aeon-php/calendar/issues",
-                "source": "https://github.com/aeon-php/calendar/tree/0.13.2"
+                "source": "https://github.com/aeon-php/calendar/tree/0.14.0"
             },
             "funding": [
                 {
@@ -59,33 +59,30 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-21T23:15:02+00:00"
+            "time": "2021-01-21T01:40:38+00:00"
         },
         {
             "name": "aeon-php/sleep",
-            "version": "0.5.0",
+            "version": "0.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aeon-php/sleep.git",
-                "reference": "29a1c3898a1e2e8510aeb8b998c4b0260758db88"
+                "reference": "7a1d91733edd07aaa2dbb8249117b3f114634e43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aeon-php/sleep/zipball/29a1c3898a1e2e8510aeb8b998c4b0260758db88",
-                "reference": "29a1c3898a1e2e8510aeb8b998c4b0260758db88",
+                "url": "https://api.github.com/repos/aeon-php/sleep/zipball/7a1d91733edd07aaa2dbb8249117b3f114634e43",
+                "reference": "7a1d91733edd07aaa2dbb8249117b3f114634e43",
                 "shasum": ""
             },
             "require": {
-                "aeon-php/calendar": ">=0.4.0",
+                "aeon-php/calendar": ">=0.14.0",
                 "php": ">=7.4.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3"
             },
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/Aeon/Calendar/System/sleep.php"
+                    "src/Aeon/Sleep/sleep.php"
                 ],
                 "psr-4": {
                     "Aeon\\": [
@@ -106,7 +103,7 @@
             ],
             "support": {
                 "issues": "https://github.com/aeon-php/sleep/issues",
-                "source": "https://github.com/aeon-php/sleep/tree/1.x"
+                "source": "https://github.com/aeon-php/sleep/tree/0.6.0"
             },
             "funding": [
                 {
@@ -114,20 +111,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-18T19:37:58+00:00"
+            "time": "2021-01-25T19:37:34+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.20.0",
+            "version": "v1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "e70aa8b064c5b72d3df2abd5ab1e90464ad009de"
+                "reference": "dc3063ba22c2a1fd2f45ed856374d79114998f91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/e70aa8b064c5b72d3df2abd5ab1e90464ad009de",
-                "reference": "e70aa8b064c5b72d3df2abd5ab1e90464ad009de",
+                "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/dc3063ba22c2a1fd2f45ed856374d79114998f91",
+                "reference": "dc3063ba22c2a1fd2f45ed856374d79114998f91",
                 "shasum": ""
             },
             "require": {
@@ -136,7 +133,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.20-dev"
+                    "dev-main": "1.22-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -181,7 +178,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.20.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.0"
             },
             "funding": [
                 {
@@ -197,7 +194,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-10-23T14:02:19+00:00"
+            "time": "2021-01-07T16:49:33+00:00"
         },
         {
             "name": "symfony/process",
