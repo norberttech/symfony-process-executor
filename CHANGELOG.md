@@ -1,3 +1,8 @@
+## [Unreleased] - 2021-07-12
+
+### Changed
+- [ebc661](https://github.com/norberttech/symfony-process-executor/commit/ebc66118acf2a1a1a4673958cfec42b138c35e82) - **dependencies** - [@norberttech](https://github.com/norberttech)
+
 ## [2.0.4] - 2021-01-25
 
 ### Added
