@@ -1,4 +1,7 @@
-## [Unreleased] - 2021-07-12
+## [Unreleased] - 2021-09-29
+
+### Added
+- [23209f](https://github.com/norberttech/symfony-process-executor/commit/23209f06ee1f45c00ab50a9ffa3efe7fe4791fb3) - **dependabot auto merge workflow** - [@norberttech](https://github.com/norberttech)
 
 ### Changed
 - [ebc661](https://github.com/norberttech/symfony-process-executor/commit/ebc66118acf2a1a1a4673958cfec42b138c35e82) - **dependencies** - [@norberttech](https://github.com/norberttech)
