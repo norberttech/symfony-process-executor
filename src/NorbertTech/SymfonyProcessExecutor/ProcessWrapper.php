@@ -54,11 +54,11 @@ final class ProcessWrapper
     public function start() : void
     {
         if ($this->started()) {
-            return ;
+            return;
         }
 
         if ($this->finished()) {
-            return ;
+            return;
         }
 
         $this->stopwatch->start();
@@ -73,11 +73,11 @@ final class ProcessWrapper
     public function kill() : void
     {
         if (!$this->started()) {
-            return ;
+            return;
         }
 
         if ($this->finished()) {
-            return ;
+            return;
         }
 
         $this->exitCode = $this->process->stop(0);
@@ -88,15 +88,15 @@ final class ProcessWrapper
     public function check() : void
     {
         if (!$this->started()) {
-            return ;
+            return;
         }
 
         if ($this->finished()) {
-            return ;
+            return;
         }
 
         if ($this->process->isRunning()) {
-            return ;
+            return;
         }
 
         $this->output = $this->process->getOutput();

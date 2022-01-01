@@ -30,8 +30,9 @@ final class SynchronousExecutor
     }
 
     /**
-     * @param TimeUnit|null $sleep - sleep time between checking out running processes
-     * @param TimeUnit|null $timeout - timeout, after this time all processes are going to be killed
+     * @param null|TimeUnit $sleep - sleep time between checking out running processes
+     * @param null|TimeUnit $timeout - timeout, after this time all processes are going to be killed
+     *
      * @throws Exception
      */
     public function execute(TimeUnit $sleep = null, TimeUnit $timeout = null) : void
@@ -44,8 +45,7 @@ final class SynchronousExecutor
         $total = TimeUnit::seconds(0);
         $this->stopwatch->start();
 
-
-        $this->pool->each(function (ProcessWrapper $process) use ($sleep, &$total, $timeout) {
+        $this->pool->each(function (ProcessWrapper $process) use ($sleep, &$total, $timeout) : void {
             $process->start();
             $process->check();
 

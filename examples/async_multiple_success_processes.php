@@ -19,11 +19,11 @@ use Symfony\Component\Process\Process;
 require __DIR__ . '/../vendor/autoload.php';
 
 $processes = new ProcessPool(
-    method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 1 && echo 1') : new Process('sleep 1 && echo 1'),
-    method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 2 && echo 2') : new Process('sleep 2 && echo 2'),
-    method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 3 && echo 3') : new Process('sleep 3 && echo 3'),
-    method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 4 && echo 4') : new Process('sleep 4 && echo 4'),
-    method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 5 && echo 5') : new Process('sleep 5 && echo 5'),
+    \method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 1 && echo 1') : new Process('sleep 1 && echo 1'),
+    \method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 2 && echo 2') : new Process('sleep 2 && echo 2'),
+    \method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 3 && echo 3') : new Process('sleep 3 && echo 3'),
+    \method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 4 && echo 4') : new Process('sleep 4 && echo 4'),
+    \method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 5 && echo 5') : new Process('sleep 5 && echo 5'),
 );
 
 $executor = new AsynchronousExecutor($processes);
@@ -32,15 +32,15 @@ $executor->execute();
 
 $executor->waitForAllToFinish();
 
-$executor->pool()->each(function (ProcessWrapper $processWrapper) {
-    var_dump($processWrapper->exitCode());
-    var_dump(\trim($processWrapper->output()));
-    var_dump($processWrapper->executionTime()->inSeconds());
-    var_dump($processWrapper->executionTime()->inMilliseconds());
-    var_dump($processWrapper->executionTime()->microsecond());
-    echo "----\n";
+$executor->pool()->each(function (ProcessWrapper $processWrapper) : void {
+    \var_dump($processWrapper->exitCode());
+    \var_dump(\trim($processWrapper->output()));
+    \var_dump($processWrapper->executionTime()->inSeconds());
+    \var_dump($processWrapper->executionTime()->inMilliseconds());
+    \var_dump($processWrapper->executionTime()->microsecond());
+    print "----\n";
 });
 
-echo \sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
-echo \sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
-echo \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSecondsPrecise());
+print \sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
+print \sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
+print \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSecondsPrecise());

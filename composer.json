@@ -13,7 +13,7 @@
         }
     },
     "require": {
-        "php": "~7.4.2 || ~8.0.0",
+        "php": "^7.4.2 || ^8.0 || ^8.1",
         "symfony/process": "^3.4|^4.4|^5.0",
         "aeon-php/sleep": ">=0.6.0"
     },
@@ -21,18 +21,25 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts" : {
-        "cs:php:fix": "tools/php-cs-fixer fix",
+        "cs:php:fix": "tools/vendor/bin/php-cs-fixer fix",
         "build": [
             "@tests",
             "@static:analyze"
         ],
         "tests" : [
-            "tools/phpunit.phar -c phpunit.xml"
+            "tools/vendor/bin/phpunit -c phpunit.xml"
         ],
         "static:analyze": [
-            "tools/php-cs-fixer fix --dry-run",
-            "tools/phpstan analyse",
-            "tools/psalm"
+            "tools/vendor/bin/php-cs-fixer fix --dry-run",
+            "tools/vendor/bin/phpstan analyse",
+            "tools/vendor/bin/psalm"
+        ],
+        "tools:install": "composer install --working-dir=./tools",
+        "post-install-cmd": [
+            "@tools:install"
+        ],
+        "post-update-cmd": [
+            "@tools:install"
         ]
     }
 }
