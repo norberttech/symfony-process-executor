@@ -1,6 +1,6 @@
 {
-    "name": "aeon-php/static-content-generator-bundle",
-    "description": "Symfony Static Content Generator Bundle - Tools",
+    "name": "aeon-php/symfony-process-executor",
+    "description": "Symfony process executor - Tools",
     "require-dev": {
         "phpunit/phpunit": "^9.5",
         "vimeo/psalm": "^4.6",
