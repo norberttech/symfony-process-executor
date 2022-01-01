@@ -1,4 +1,4 @@
-## [Unreleased] - 2022-01-01
+## [2.1.0] - 2022-01-01
 
 ### Added
 - [23209f](https://github.com/norberttech/symfony-process-executor/commit/23209f06ee1f45c00ab50a9ffa3efe7fe4791fb3) - **dependabot auto merge workflow** - [@norberttech](https://github.com/norberttech)
