@@ -3,6 +3,8 @@ Starting multiple processes with defined timeout
 --FILE--
 <?php
 
+\error_reporting(E_ALL ^ E_DEPRECATED);
+
 use NorbertTech\SymfonyProcessExecutor\AsynchronousExecutor;
 use NorbertTech\SymfonyProcessExecutor\ProcessPool;
 use NorbertTech\SymfonyProcessExecutor\ProcessWrapper;

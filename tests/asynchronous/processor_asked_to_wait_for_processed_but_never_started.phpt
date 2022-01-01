@@ -3,6 +3,8 @@ Asking processor to wait for all processes to finish but without starting him
 --FILE--
 <?php
 
+\error_reporting(E_ALL ^ E_DEPRECATED);
+
 use NorbertTech\SymfonyProcessExecutor\AsynchronousExecutor;
 use NorbertTech\SymfonyProcessExecutor\ProcessPool;
 use Symfony\Component\Process\Process;
