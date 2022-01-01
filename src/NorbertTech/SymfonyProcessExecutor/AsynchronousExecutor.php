@@ -37,14 +37,15 @@ final class AsynchronousExecutor
 
         $this->stopwatch->start();
 
-        $this->pool->each(function (ProcessWrapper $process) {
+        $this->pool->each(function (ProcessWrapper $process) : void {
             $process->start();
         });
     }
 
     /**
-     * @param TimeUnit|null $sleep - sleep time between checking out running processes
-     * @param TimeUnit|null $timeout - timeout, after this time all processes are going to be killed
+     * @param null|TimeUnit $sleep - sleep time between checking out running processes
+     * @param null|TimeUnit $timeout - timeout, after this time all processes are going to be killed
+     *
      * @throws Exception
      */
     public function waitForAllToFinish(TimeUnit $sleep = null, TimeUnit $timeout = null) : void
@@ -63,7 +64,7 @@ final class AsynchronousExecutor
 
             if ($timeout) {
                 if ($total->isGreaterThan($timeout)) {
-                    $this->pool->each(function (ProcessWrapper $process) {
+                    $this->pool->each(function (ProcessWrapper $process) : void {
                         $process->kill();
                     });
                 }

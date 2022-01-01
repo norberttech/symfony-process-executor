@@ -3,6 +3,8 @@ Starting executor with empty process pool
 --FILE--
 <?php
 
+\error_reporting(E_ALL ^ E_DEPRECATED);
+
 use NorbertTech\SymfonyProcessExecutor\SynchronousExecutor;
 use NorbertTech\SymfonyProcessExecutor\ProcessPool;
 use NorbertTech\SymfonyProcessExecutor\ProcessWrapper;
