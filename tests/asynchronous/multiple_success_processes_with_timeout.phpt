@@ -26,7 +26,7 @@ $executor->execute();
 $executor->waitForAllToFinish(TimeUnit::milliseconds(100), TimeUnit::milliseconds(3000));
 
 $executor->pool()->each(function (ProcessWrapper $processWrapper) {
-    var_dump($processWrapper->exitCode());
+    var_dump($processWrapper->exitCode() != 0 ? "failed" : "succeed");
     var_dump(\trim($processWrapper->output()));
     var_dump($processWrapper->executionTime()->inSeconds());
     echo "----\n";
@@ -37,23 +37,23 @@ echo \sprintf("Failure finished child processes: %d\n", $executor->pool()->withF
 echo \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSeconds());
 
 --EXPECT--
-int(0)
+string(7) "succeed"
 string(1) "1"
 int(1)
 ----
-int(0)
+string(7) "succeed"
 string(1) "2"
 int(2)
 ----
-int(0)
+string(7) "succeed"
 string(1) "3"
 int(3)
 ----
-int(143)
+string(6) "failed"
 string(0) ""
 int(3)
 ----
-int(143)
+string(6) "failed"
 string(0) ""
 int(3)
 ----
