@@ -46,6 +46,7 @@ final class SynchronousExecutor
         $this->stopwatch->start();
 
         $this->pool->each(function (ProcessWrapper $process) use ($sleep, &$total, $timeout) : void {
+            /** @var TimeUnit $total */
             $process->start();
             $process->check();
 

@@ -24,12 +24,12 @@ final class ProcessPool
 
     public function __construct(Process ...$processes)
     {
-        $this->processes = \array_map(
+        $this->processes = \array_values(\array_map(
             function (Process $process) : ProcessWrapper {
                 return new ProcessWrapper($process);
             },
             $processes
-        );
+        ));
     }
 
     public function unfinished() : int
