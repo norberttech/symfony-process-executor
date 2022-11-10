@@ -1,4 +1,4 @@
-## [Unreleased] - 2022-11-01
+## [Unreleased] - 2022-11-10
 
 ### Updated
 - [26e533](https://github.com/norberttech/symfony-process-executor/commit/26e5333440a00c7b93ec41eb6ed70c66052ca523) - **dependencies and fixed static analysis errors** - [@norberttech](https://github.com/norberttech)
