@@ -5,6 +5,9 @@
 - [bee17a](https://github.com/norberttech/symfony-process-executor/commit/bee17aa76a54cc7c018a5b36c2d43bf3ed38db16) - **dependencies** - [@norberttech](https://github.com/norberttech)
 - [26e533](https://github.com/norberttech/symfony-process-executor/commit/26e5333440a00c7b93ec41eb6ed70c66052ca523) - **dependencies and fixed static analysis errors** - [@norberttech](https://github.com/norberttech)
 
+### Removed
+- [cdd25c](https://github.com/norberttech/symfony-process-executor/commit/cdd25c39b4730a4bbe66c726f5eabafc11fc51a6) - **php 7.4 support** - [@norberttech](https://github.com/norberttech)
+
 ## [2.1.0] - 2022-01-01
 
 ### Added
