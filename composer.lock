@@ -1,0 +1,177 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a8b2248f79faea5fabd5feee7eb524ee",
+    "packages": [
+        {
+            "name": "aeon-php/calendar",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aeon-php/calendar.git",
+                "reference": "49e3167815ca6af1f4215eed0719c3d83d749571"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aeon-php/calendar/zipball/49e3167815ca6af1f4215eed0719c3d83d749571",
+                "reference": "49e3167815ca6af1f4215eed0719c3d83d749571",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4.2 || ~8.0 || ~8.1.10"
+            },
+            "require-dev": {
+                "ext-bcmath": "*"
+            },
+            "suggest": {
+                "ext-bcmath": "Compare time units with high precision"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aeon\\": [
+                        "src/Aeon"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP type safe, immutable calendar library",
+            "keywords": [
+                "calendar",
+                "date",
+                "datetime",
+                "immutable",
+                "time"
+            ],
+            "support": {
+                "issues": "https://github.com/aeon-php/calendar/issues",
+                "source": "https://github.com/aeon-php/calendar/tree/1.0.7"
+            },
+            "time": "2022-09-10T13:11:14+00:00"
+        },
+        {
+            "name": "aeon-php/sleep",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aeon-php/sleep.git",
+                "reference": "8070b7f08f99d5af1d52f0d7e127b094cfa38a29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aeon-php/sleep/zipball/8070b7f08f99d5af1d52f0d7e127b094cfa38a29",
+                "reference": "8070b7f08f99d5af1d52f0d7e127b094cfa38a29",
+                "shasum": ""
+            },
+            "require": {
+                "aeon-php/calendar": "^1.0",
+                "php": "^7.4.2 || ^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Aeon/Sleep/sleep.php"
+                ],
+                "psr-4": {
+                    "Aeon\\": [
+                        "src/Aeon"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Improved sleep function that uses simple TimeUnit and decides between \\sleep and \\usleep",
+            "keywords": [
+                "calendar",
+                "holidays",
+                "immutable",
+                "sleep"
+            ],
+            "support": {
+                "issues": "https://github.com/aeon-php/sleep/issues",
+                "source": "https://github.com/aeon-php/sleep/tree/1.0.3"
+            },
+            "time": "2022-01-06T11:14:18+00:00"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v6.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "a6506e99cfad7059b1ab5cab395854a0a0c21292"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/a6506e99cfad7059b1ab5cab395854a0a0c21292",
+                "reference": "a6506e99cfad7059b1ab5cab395854a0a0c21292",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Executes commands in sub-processes",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/v6.1.3"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-06-27T17:24:16+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^7.4.2 || ^8.0 || ^8.1"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}
