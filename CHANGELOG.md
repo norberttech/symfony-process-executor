@@ -1,6 +1,7 @@
 ## [Unreleased] - 2022-11-29
 
 ### Updated
+- [1f2cec](https://github.com/norberttech/symfony-process-executor/commit/1f2cecc3ffecf3fc567b7d066b9ad1178e4fd583) - **tools dependnecies** - [@norberttech](https://github.com/norberttech)
 - [bee17a](https://github.com/norberttech/symfony-process-executor/commit/bee17aa76a54cc7c018a5b36c2d43bf3ed38db16) - **dependencies** - [@norberttech](https://github.com/norberttech)
 - [26e533](https://github.com/norberttech/symfony-process-executor/commit/26e5333440a00c7b93ec41eb6ed70c66052ca523) - **dependencies and fixed static analysis errors** - [@norberttech](https://github.com/norberttech)
 
