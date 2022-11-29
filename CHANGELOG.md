@@ -6,6 +6,7 @@
 - [26e533](https://github.com/norberttech/symfony-process-executor/commit/26e5333440a00c7b93ec41eb6ed70c66052ca523) - **dependencies and fixed static analysis errors** - [@norberttech](https://github.com/norberttech)
 
 ### Removed
+- [fb264c](https://github.com/norberttech/symfony-process-executor/commit/fb264c64aff05af82ffbb1814eb8dc47dfad0131) - **automerge workflow** - [@norberttech](https://github.com/norberttech)
 - [b3ebe8](https://github.com/norberttech/symfony-process-executor/commit/b3ebe83d5571ebf438aade3e4482c023e6781e7a) - **php 8.0 and stick to 8.1** - [@norberttech](https://github.com/norberttech)
 - [cdd25c](https://github.com/norberttech/symfony-process-executor/commit/cdd25c39b4730a4bbe66c726f5eabafc11fc51a6) - **php 7.4 support** - [@norberttech](https://github.com/norberttech)
 
