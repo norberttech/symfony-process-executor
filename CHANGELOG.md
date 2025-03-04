@@ -1,6 +1,9 @@
-## [Unreleased] - 2024-10-21
+## [Unreleased] - 2025-03-04
 
 ### Updated
+- [8f6baa](https://github.com/norberttech/symfony-process-executor/commit/8f6baa66ae50c76485716559447427a9feedcbe4) - **changelog-update.yml** - [@norberttech](https://github.com/norberttech)
+- [25980f](https://github.com/norberttech/symfony-process-executor/commit/25980feabe4c94c8de6b339006375cf272b67ba7) - **tests.yml** - [@norberttech](https://github.com/norberttech)
+- [88f45b](https://github.com/norberttech/symfony-process-executor/commit/88f45be1b2fbd12f5a5583731915b02d6faff75c) - **static-analyze.yml** - [@norberttech](https://github.com/norberttech)
 - [1f2cec](https://github.com/norberttech/symfony-process-executor/commit/1f2cecc3ffecf3fc567b7d066b9ad1178e4fd583) - **tools dependnecies** - [@norberttech](https://github.com/norberttech)
 - [bee17a](https://github.com/norberttech/symfony-process-executor/commit/bee17aa76a54cc7c018a5b36c2d43bf3ed38db16) - **dependencies** - [@norberttech](https://github.com/norberttech)
 - [26e533](https://github.com/norberttech/symfony-process-executor/commit/26e5333440a00c7b93ec41eb6ed70c66052ca523) - **dependencies and fixed static analysis errors** - [@norberttech](https://github.com/norberttech)
