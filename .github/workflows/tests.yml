@@ -14,22 +14,19 @@ jobs:
 
     runs-on: ${{ matrix.operating-system }}
 
-   strategy:
+    strategy:
       fail-fast: false
       matrix:
+        dependencies:
+          - "locked"
+          - "lowest"
+          - "highest"
         php-version:
           - "8.2"
           - "8.3"
           - "8.4"
         operating-system:
           - "ubuntu-latest"
-        dependencies:
-          - "locked"
-        include:
-          - php-version: "8.2"
-            dependencies: "lowest"
-          - php-version: "8.2"
-            dependencies: "highest"
 
     steps:
       - name: "Checkout"
