@@ -1,9 +1,10 @@
-## [Unreleased] - 2025-03-04
+## [Unreleased] - 2025-05-02
 
 ### Changed
 - [#326](https://github.com/norberttech/symfony-process-executor/pull/326) - **Allow Symfony 7** - [@PabloKowalczyk](https://github.com/PabloKowalczyk)
 
 ### Updated
+- [fe3641](https://github.com/norberttech/symfony-process-executor/commit/fe3641da469e086197305bfcd0426073fa0ca817) - **README.md** - [@norberttech](https://github.com/norberttech)
 - [8f6baa](https://github.com/norberttech/symfony-process-executor/commit/8f6baa66ae50c76485716559447427a9feedcbe4) - **changelog-update.yml** - [@norberttech](https://github.com/norberttech)
 - [25980f](https://github.com/norberttech/symfony-process-executor/commit/25980feabe4c94c8de6b339006375cf272b67ba7) - **tests.yml** - [@norberttech](https://github.com/norberttech)
 - [88f45b](https://github.com/norberttech/symfony-process-executor/commit/88f45be1b2fbd12f5a5583731915b02d6faff75c) - **static-analyze.yml** - [@norberttech](https://github.com/norberttech)
