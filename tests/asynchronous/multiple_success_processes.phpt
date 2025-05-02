@@ -9,6 +9,7 @@ use NorbertTech\SymfonyProcessExecutor\AsynchronousExecutor;
 use NorbertTech\SymfonyProcessExecutor\ProcessPool;
 use NorbertTech\SymfonyProcessExecutor\ProcessWrapper;
 use Symfony\Component\Process\Process;
+use Aeon\Calendar\TimeUnit;
 
 require __DIR__ . '/../../vendor/autoload.php';
 
@@ -20,11 +21,9 @@ $processes = new ProcessPool(
     method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 5 && echo 5') : new Process('sleep 5 && echo 5'),
 );
 
-$executor = new AsynchronousExecutor($processes);
+$executor = new AsynchronousExecutor($processes, TimeUnit::milliseconds(100), TimeUnit::seconds(6));
 
 $executor->execute();
-
-$executor->waitForAllToFinish();
 
 $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     var_dump($processWrapper->exitCode());
@@ -33,8 +32,8 @@ $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     echo "----\n";
 });
 
-echo \sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
-echo \sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
+echo \sprintf("Successfully finished child processes: %d\n", $executor->pool()->succeeded());
+echo \sprintf("Failure finished child processes: %d\n", $executor->pool()->failed());
 echo \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSeconds());
 
 --EXPECT--

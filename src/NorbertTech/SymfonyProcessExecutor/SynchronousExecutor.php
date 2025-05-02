@@ -10,39 +10,38 @@ use NorbertTech\SymfonyProcessExecutor\Exception\Exception;
 
 final class SynchronousExecutor implements Executor
 {
-    private ProcessPool $pool;
-
-    private Stopwatch $stopwatch;
-
-    public function __construct(ProcessPool $pool)
+    /**
+     * @param ProcessPool $pool
+     * @param null|TimeUnit $sleep
+     * @param null|TimeUnit $timeout
+     */
+    public function __construct(private readonly ProcessPool $pool, private readonly ?TimeUnit $sleep = null, private readonly ?TimeUnit $timeout = null, private readonly Stopwatch $stopwatch = new Stopwatch())
     {
-        $this->pool = $pool;
-        $this->stopwatch = new Stopwatch();
+        if ($this->stopwatch->isStarted()) {
+            throw new Exception('SynchronousExecutor already started');
+        }
     }
 
     /**
-     * @param null|TimeUnit $sleep - sleep time between checking out running processes
-     * @param null|TimeUnit $timeout - timeout, after this time all processes are going to be killed
-     *
      * @throws Exception
      */
-    public function execute(TimeUnit $sleep = null, TimeUnit $timeout = null) : void
+    public function execute() : void
     {
         if ($this->stopwatch->isStarted()) {
             throw new Exception('SynchronousExecutor already started');
         }
 
-        $sleep = $sleep ?: TimeUnit::milliseconds(100);
-        $total = TimeUnit::seconds(0);
         $this->stopwatch->start();
+        $sleep = $this->sleep ?: TimeUnit::milliseconds(100);
+        $total = TimeUnit::seconds(0);
 
-        $this->pool->each(function (ProcessWrapper $process) use ($sleep, &$total, $timeout) : void {
+        $this->pool->each(function (ProcessWrapper $process) use ($sleep, &$total) : void {
             /** @var TimeUnit $total */
             $process->start();
             $process->check();
 
-            if ($timeout) {
-                if ($total->isGreaterThan($timeout)) {
+            if ($this->timeout) {
+                if ($total->isGreaterThan($this->timeout)) {
                     $process->kill();
                 }
             }
@@ -52,8 +51,8 @@ final class SynchronousExecutor implements Executor
 
                 $total = $total->add($sleep);
 
-                if ($timeout) {
-                    if ($total->isGreaterThan($timeout)) {
+                if ($this->timeout) {
+                    if ($total->isGreaterThan($this->timeout)) {
                         $process->kill();
                     }
                 }
@@ -63,11 +62,6 @@ final class SynchronousExecutor implements Executor
         });
 
         $this->stopwatch->stop();
-    }
-
-    public function waitForAllToFinish(TimeUnit $sleep = null, TimeUnit $timeout = null) : void
-    {
-        // Do nothing, all processes are already finished
     }
 
     public function pool() : ProcessPool

@@ -30,8 +30,6 @@ $executor = new AsynchronousExecutor($processes);
 
 $executor->execute();
 
-$executor->waitForAllToFinish();
-
 $executor->pool()->each(function (ProcessWrapper $processWrapper) : void {
     \var_dump($processWrapper->exitCode());
     \var_dump(\trim($processWrapper->output()));
@@ -41,6 +39,6 @@ $executor->pool()->each(function (ProcessWrapper $processWrapper) : void {
     print "----\n";
 });
 
-print \sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
-print \sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
+print \sprintf("Successfully finished child processes: %d\n", $executor->pool()->succeeded());
+print \sprintf("Failure finished child processes: %d\n", $executor->pool()->failed());
 print \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSecondsPrecise());

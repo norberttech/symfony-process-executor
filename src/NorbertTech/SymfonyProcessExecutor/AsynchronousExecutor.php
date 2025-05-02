@@ -10,54 +10,53 @@ use NorbertTech\SymfonyProcessExecutor\Exception\Exception;
 
 final class AsynchronousExecutor implements Executor
 {
-    private ProcessPool $pool;
-
-    private Stopwatch $stopwatch;
-
-    public function __construct(ProcessPool $pool)
+    /**
+     * @param ProcessPool $pool - pool of processes to execute
+     * @param ?TimeUnit $sleep - sleep time between checking out running processes
+     * @param ?TimeUnit $timeout - timeout, after this time all processes are going to be killed
+     * @param ?int $batchSize - how many processes should be executed in parallel, when null, all processes are executed in parallel
+     */
+    public function __construct(private readonly ProcessPool $pool, private readonly ?TimeUnit $sleep = null, private readonly ?TimeUnit $timeout = null, private ?int $batchSize = null, private readonly Stopwatch $stopwatch = new Stopwatch())
     {
-        $this->pool = $pool;
-        $this->stopwatch = new Stopwatch();
+        if ($this->stopwatch->isStarted()) {
+            throw new Exception('AsynchronousExecutor already started');
+        }
     }
 
+    /**
+     * @throws Exception
+     */
     public function execute() : void
     {
         if ($this->stopwatch->isStarted()) {
             throw new Exception('AsynchronousExecutor already started');
         }
 
-        $this->stopwatch->start();
-
-        $this->pool->each(function (ProcessWrapper $process) : void {
-            $process->start();
-        });
-    }
-
-    /**
-     * @param null|TimeUnit $sleep - sleep time between checking out running processes
-     * @param null|TimeUnit $timeout - timeout, after this time all processes are going to be killed
-     *
-     * @throws Exception
-     */
-    public function waitForAllToFinish(TimeUnit $sleep = null, TimeUnit $timeout = null) : void
-    {
-        if (!$this->stopwatch->isStarted()) {
-            throw new Exception('AsynchronousExecutor not started, please use AsynchronousExecutor::execute() method');
-        }
-
-        $sleep = $sleep ?: TimeUnit::milliseconds(100);
+        $sleep = $this->sleep ?: TimeUnit::milliseconds(100);
         $total = TimeUnit::seconds(0);
 
-        while ($this->pool->unfinished() > 0) {
-            \Aeon\Sleep\sleep($sleep);
+        $this->stopwatch->start();
 
-            $total = $total->add($sleep);
+        while ($this->pool->notStartedCount() > 0) {
+            foreach ($this->pool->notStarted($this->batchSize) as $process) {
+                $process->start();
+            }
 
-            if ($timeout) {
-                if ($total->isGreaterThan($timeout)) {
-                    $this->pool->each(function (ProcessWrapper $process) : void {
-                        $process->kill();
-                    });
+            while ($this->pool->unfinishedCount() > 0) {
+                foreach ($this->pool->notFinished() as $process) {
+                    $process->check();
+                }
+
+                \Aeon\Sleep\sleep($sleep);
+
+                $total = $total->add($sleep);
+
+                if ($this->timeout) {
+                    if ($total->isGreaterThan($this->timeout)) {
+                        $this->pool->each(function (ProcessWrapper $process) : void {
+                            $process->kill();
+                        });
+                    }
                 }
             }
         }

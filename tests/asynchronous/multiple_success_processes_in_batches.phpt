@@ -1,5 +1,5 @@
 --TEST--
-Starting multiple processes with defined timeout
+Starting multiple processes without defined timeout
 --FILE--
 <?php
 
@@ -21,12 +21,12 @@ $processes = new ProcessPool(
     method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 5 && echo 5') : new Process('sleep 5 && echo 5'),
 );
 
-$executor = new AsynchronousExecutor($processes, TimeUnit::milliseconds(100), TimeUnit::milliseconds(3000));
+$executor = new AsynchronousExecutor($processes, TimeUnit::milliseconds(100), TimeUnit::seconds(12), 2);
 
 $executor->execute();
 
 $executor->pool()->each(function (ProcessWrapper $processWrapper) {
-    var_dump($processWrapper->exitCode() != 0 ? "failed" : "succeed");
+    var_dump($processWrapper->exitCode());
     var_dump(\trim($processWrapper->output()));
     var_dump($processWrapper->executionTime()->inSeconds());
     echo "----\n";
@@ -37,26 +37,26 @@ echo \sprintf("Failure finished child processes: %d\n", $executor->pool()->faile
 echo \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSeconds());
 
 --EXPECT--
-string(7) "succeed"
+int(0)
 string(1) "1"
 int(1)
 ----
-string(7) "succeed"
+int(0)
 string(1) "2"
 int(2)
 ----
-string(7) "succeed"
+int(0)
 string(1) "3"
 int(3)
 ----
-string(6) "failed"
-string(0) ""
-int(3)
+int(0)
+string(1) "4"
+int(4)
 ----
-string(6) "failed"
-string(0) ""
-int(3)
+int(0)
+string(1) "5"
+int(5)
 ----
-Successfully finished child processes: 3
-Failure finished child processes: 2
-Total execution time [s]: 3
+Successfully finished child processes: 5
+Failure finished child processes: 0
+Total execution time [s]: 11

@@ -32,8 +32,6 @@ $executor = new AsynchronousExecutor($processes);
 
 $executor->execute();
 
-$executor->waitForAllToFinish();
-
 $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     var_dump($processWrapper->exitCode());
     var_dump(\trim($processWrapper->output()));

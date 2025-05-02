@@ -24,8 +24,8 @@ $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     echo "----\n";
 });
 
-echo \sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
-echo \sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
+echo \sprintf("Successfully finished child processes: %d\n", $executor->pool()->succeeded());
+echo \sprintf("Failure finished child processes: %d\n", $executor->pool()->failed());
 echo \sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSeconds());
 
 --EXPECT--

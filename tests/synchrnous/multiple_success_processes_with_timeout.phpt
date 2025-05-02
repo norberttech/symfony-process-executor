@@ -21,9 +21,9 @@ $processes = new ProcessPool(
     method_exists(Process::class, 'fromShellCommandline') ? Process::fromShellCommandline('sleep 1 && echo 5') : new Process('sleep 1 && echo 5'),
 );
 
-$executor = new SynchronousExecutor($processes);
+$executor = new SynchronousExecutor($processes, TimeUnit::milliseconds(10), TimeUnit::milliseconds(3000));
 
-$executor->execute(TimeUnit::milliseconds(10), TimeUnit::milliseconds(3000));
+$executor->execute();
 
 $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     var_dump($processWrapper->exitCode() != 0 ? "failed" : "succeed");
@@ -32,8 +32,8 @@ $executor->pool()->each(function (ProcessWrapper $processWrapper) {
     echo "----\n";
 });
 
-echo sprintf("Successfully finished child processes: %d\n", $executor->pool()->withSuccessExitCode());
-echo sprintf("Failure finished child processes: %d\n", $executor->pool()->withFailureExitCode());
+echo sprintf("Successfully finished child processes: %d\n", $executor->pool()->succeeded());
+echo sprintf("Failure finished child processes: %d\n", $executor->pool()->failed());
 echo sprintf("Total execution time [s]: %d\n", $executor->executionTime()->inSeconds());
 
 --EXPECT--

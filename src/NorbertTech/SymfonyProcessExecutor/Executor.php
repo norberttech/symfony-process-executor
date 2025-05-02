@@ -13,6 +13,4 @@ interface Executor
     public function pool() : ProcessPool;
 
     public function executionTime() : TimeUnit;
-
-    public function waitForAllToFinish(TimeUnit $sleep = null, TimeUnit $timeout = null) : void;
 }
