@@ -4,27 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e68487abe50572b59a73e9b3443440d0",
+    "content-hash": "eadb6460ed4da07c7d026ec50155ebc6",
     "packages": [
         {
             "name": "aeon-php/calendar",
-            "version": "1.0.7",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aeon-php/calendar.git",
-                "reference": "49e3167815ca6af1f4215eed0719c3d83d749571"
+                "reference": "41f4b0ff07247c36b232ddfbcddc62af738be6fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aeon-php/calendar/zipball/49e3167815ca6af1f4215eed0719c3d83d749571",
-                "reference": "49e3167815ca6af1f4215eed0719c3d83d749571",
+                "url": "https://api.github.com/repos/aeon-php/calendar/zipball/41f4b0ff07247c36b232ddfbcddc62af738be6fe",
+                "reference": "41f4b0ff07247c36b232ddfbcddc62af738be6fe",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4.2 || ~8.0 || ~8.1.10"
+                "php": "~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "require-dev": {
-                "ext-bcmath": "*"
+                "ext-bcmath": "*",
+                "ext-pcov": "*"
             },
             "suggest": {
                 "ext-bcmath": "Compare time units with high precision"
@@ -51,27 +52,37 @@
             ],
             "support": {
                 "issues": "https://github.com/aeon-php/calendar/issues",
-                "source": "https://github.com/aeon-php/calendar/tree/1.0.7"
+                "source": "https://github.com/aeon-php/calendar/tree/1.0.11"
             },
-            "time": "2022-09-10T13:11:14+00:00"
+            "funding": [
+                {
+                    "url": "https://flow-php.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/norberttech",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-01-24T04:47:09+00:00"
         },
         {
             "name": "aeon-php/sleep",
-            "version": "1.0.3",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aeon-php/sleep.git",
-                "reference": "8070b7f08f99d5af1d52f0d7e127b094cfa38a29"
+                "reference": "59f44ef6313e0b05d65aa20369be1fcc937142d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aeon-php/sleep/zipball/8070b7f08f99d5af1d52f0d7e127b094cfa38a29",
-                "reference": "8070b7f08f99d5af1d52f0d7e127b094cfa38a29",
+                "url": "https://api.github.com/repos/aeon-php/sleep/zipball/59f44ef6313e0b05d65aa20369be1fcc937142d3",
+                "reference": "59f44ef6313e0b05d65aa20369be1fcc937142d3",
                 "shasum": ""
             },
             "require": {
-                "aeon-php/calendar": "^1.0",
-                "php": "^7.4.2 || ^8.0"
+                "aeon-php/calendar": "~1.0",
+                "php": "~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "type": "library",
             "autoload": {
@@ -97,26 +108,36 @@
             ],
             "support": {
                 "issues": "https://github.com/aeon-php/sleep/issues",
-                "source": "https://github.com/aeon-php/sleep/tree/1.0.3"
+                "source": "https://github.com/aeon-php/sleep/tree/1.0.11"
             },
-            "time": "2022-01-06T11:14:18+00:00"
+            "funding": [
+                {
+                    "url": "https://flow-php.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/norberttech",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-01-24T04:47:20+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v6.4.14",
+            "version": "v7.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "25214adbb0996d18112548de20c281be9f27279f"
+                "reference": "87b7c93e57df9d8e39a093d32587702380ff045d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/25214adbb0996d18112548de20c281be9f27279f",
-                "reference": "25214adbb0996d18112548de20c281be9f27279f",
+                "url": "https://api.github.com/repos/symfony/process/zipball/87b7c93e57df9d8e39a093d32587702380ff045d",
+                "reference": "87b7c93e57df9d8e39a093d32587702380ff045d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1"
+                "php": ">=8.2"
             },
             "type": "library",
             "autoload": {
@@ -144,7 +165,7 @@
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/process/tree/v6.4.14"
+                "source": "https://github.com/symfony/process/tree/v7.2.5"
             },
             "funding": [
                 {
@@ -160,18 +181,18 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-06T09:25:01+00:00"
+            "time": "2025-03-13T12:21:46+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

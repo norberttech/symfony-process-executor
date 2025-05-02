@@ -15,7 +15,7 @@
     "require": {
         "php": "^8.1",
         "symfony/process": "^3.4 || ^4.4 || ^5.0 || ^6.0 || ^7.0",
-        "aeon-php/sleep": ">=0.6.0"
+        "aeon-php/sleep": "^1.0"
     },
     "license": "MIT",
     "minimum-stability": "dev",
@@ -31,8 +31,7 @@
         ],
         "static:analyze": [
             "tools/vendor/bin/php-cs-fixer fix --dry-run",
-            "tools/vendor/bin/phpstan analyse",
-            "tools/vendor/bin/psalm"
+            "tools/vendor/bin/phpstan analyse"
         ],
         "tools:install": "composer install --working-dir=./tools",
         "post-install-cmd": [
