@@ -1,3 +1,30 @@
+## [Unreleased] - 2025-05-02
+
+### Added
+- [3e22b8](https://github.com/norberttech/symfony-process-executor/commit/3e22b871e0c24992eaccc15784ed4d4cbe341e97) - **common interface for executors** - [@norberttech](https://github.com/norberttech)
+
+### Changed
+- [#326](https://github.com/norberttech/symfony-process-executor/pull/326) - **Allow Symfony 7** - [@PabloKowalczyk](https://github.com/PabloKowalczyk)
+
+### Fixed
+- [442735](https://github.com/norberttech/symfony-process-executor/commit/44273563f4ae4a4e2752732d2d47334d2480123b) - **deprecation notice in github actions workflow** - [@norberttech](https://github.com/norberttech)
+- [01ceb2](https://github.com/norberttech/symfony-process-executor/commit/01ceb2aa7628f3bb24bbbbfc9f2a1dbe5b0e12d8) - **indention in tests.yaml** - [@norberttech](https://github.com/norberttech)
+
+### Updated
+- [370769](https://github.com/norberttech/symfony-process-executor/commit/370769f416d3f7f1f9f8513fe45f09f3ad901b5b) - **github actions workflows & upgraded minimum required php version** - [@norberttech](https://github.com/norberttech)
+- [fe3641](https://github.com/norberttech/symfony-process-executor/commit/fe3641da469e086197305bfcd0426073fa0ca817) - **README.md** - [@norberttech](https://github.com/norberttech)
+- [8f6baa](https://github.com/norberttech/symfony-process-executor/commit/8f6baa66ae50c76485716559447427a9feedcbe4) - **changelog-update.yml** - [@norberttech](https://github.com/norberttech)
+- [25980f](https://github.com/norberttech/symfony-process-executor/commit/25980feabe4c94c8de6b339006375cf272b67ba7) - **tests.yml** - [@norberttech](https://github.com/norberttech)
+- [88f45b](https://github.com/norberttech/symfony-process-executor/commit/88f45be1b2fbd12f5a5583731915b02d6faff75c) - **static-analyze.yml** - [@norberttech](https://github.com/norberttech)
+- [1f2cec](https://github.com/norberttech/symfony-process-executor/commit/1f2cecc3ffecf3fc567b7d066b9ad1178e4fd583) - **tools dependnecies** - [@norberttech](https://github.com/norberttech)
+- [bee17a](https://github.com/norberttech/symfony-process-executor/commit/bee17aa76a54cc7c018a5b36c2d43bf3ed38db16) - **dependencies** - [@norberttech](https://github.com/norberttech)
+- [26e533](https://github.com/norberttech/symfony-process-executor/commit/26e5333440a00c7b93ec41eb6ed70c66052ca523) - **dependencies and fixed static analysis errors** - [@norberttech](https://github.com/norberttech)
+
+### Removed
+- [fb264c](https://github.com/norberttech/symfony-process-executor/commit/fb264c64aff05af82ffbb1814eb8dc47dfad0131) - **automerge workflow** - [@norberttech](https://github.com/norberttech)
+- [b3ebe8](https://github.com/norberttech/symfony-process-executor/commit/b3ebe83d5571ebf438aade3e4482c023e6781e7a) - **php 8.0 and stick to 8.1** - [@norberttech](https://github.com/norberttech)
+- [cdd25c](https://github.com/norberttech/symfony-process-executor/commit/cdd25c39b4730a4bbe66c726f5eabafc11fc51a6) - **php 7.4 support** - [@norberttech](https://github.com/norberttech)
+
 ## [2.2.0] - 2025-05-02
 
 ### Added
