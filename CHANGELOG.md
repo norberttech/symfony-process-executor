@@ -1,4 +1,4 @@
-## [Unreleased] - 2025-05-02
+## [2.2.0] - 2025-05-02
 
 ### Added
 - [3e22b8](https://github.com/norberttech/symfony-process-executor/commit/3e22b871e0c24992eaccc15784ed4d4cbe341e97) - **common interface for executors** - [@norberttech](https://github.com/norberttech)
