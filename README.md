@@ -19,6 +19,7 @@ use NorbertTech\SymfonyProcessExecutor\AsynchronousExecutor;
 use NorbertTech\SymfonyProcessExecutor\ProcessPool;
 use NorbertTech\SymfonyProcessExecutor\ProcessWrapper;
 use Symfony\Component\Process\Process;
+use Aeon\Calendar\TimeUnit;
 
 $processes = new ProcessPool(
     Process::fromShellCommandline('sleep 1 && echo 1'),
@@ -28,7 +29,12 @@ $processes = new ProcessPool(
     Process::fromShellCommandline('sleep 5 && echo 5')
 );
 
-$executor = new AsynchronousExecutor($processes);
+$executor = new AsynchronousExecutor(
+    pool: $processes,
+    sleep: TimeUnit::milliseconds(100), // delay between checking for process completion
+    timeout: TimeUnit::seconds(12),  // total timeout for all processes
+    batchSize: 2 // number of processes to run in parallel at once, when null all processes will be run in parallel
+);
 
 $executor->execute();
 
