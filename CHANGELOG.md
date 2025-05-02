@@ -7,7 +7,7 @@
 - [#326](https://github.com/norberttech/symfony-process-executor/pull/326) - **Allow Symfony 7** - [@PabloKowalczyk](https://github.com/PabloKowalczyk)
 
 ### Fixed
-- [da183c](https://github.com/norberttech/symfony-process-executor/commit/da183c084ef863fe3161b75ede982834222af46c) - **indention in tests.yaml** - [@norberttech](https://github.com/norberttech)
+- [01ceb2](https://github.com/norberttech/symfony-process-executor/commit/01ceb2aa7628f3bb24bbbbfc9f2a1dbe5b0e12d8) - **indention in tests.yaml** - [@norberttech](https://github.com/norberttech)
 
 ### Updated
 - [370769](https://github.com/norberttech/symfony-process-executor/commit/370769f416d3f7f1f9f8513fe45f09f3ad901b5b) - **github actions workflows & upgraded minimum required php version** - [@norberttech](https://github.com/norberttech)
