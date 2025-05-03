@@ -1,8 +1,11 @@
-## [Unreleased] - 2025-05-02
+## [Unreleased] - 2025-05-03
 
 ### Changed
 - [#342](https://github.com/norberttech/symfony-process-executor/pull/342) - **Updated dependencies and readme** - [@norberttech](https://github.com/norberttech)
 - [298e77](https://github.com/norberttech/symfony-process-executor/commit/298e77852b9aadcc32bd956c33e82d9827b88bec) - **API of Executor Interface to allow executing parallel commands in chunks** - [@norberttech](https://github.com/norberttech)
+
+### Updated
+- [69ed6d](https://github.com/norberttech/symfony-process-executor/commit/69ed6db8720175adfaf6d7b83b007f4038e03341) - **synchronouse executor docblocks** - [@norberttech](https://github.com/norberttech)
 
 ## [2.2.0] - 2025-05-02
 
