@@ -11,9 +11,9 @@ use NorbertTech\SymfonyProcessExecutor\Exception\Exception;
 final class SynchronousExecutor implements Executor
 {
     /**
-     * @param ProcessPool $pool
-     * @param null|TimeUnit $sleep
-     * @param null|TimeUnit $timeout
+     * @param ProcessPool $pool - pool of processes to execute
+     * @param ?TimeUnit $sleep - sleep time between checking out running processes
+     * @param ?TimeUnit $timeout - timeout, after this time all processes are going to be killed
      */
     public function __construct(private readonly ProcessPool $pool, private readonly ?TimeUnit $sleep = null, private readonly ?TimeUnit $timeout = null, private readonly Stopwatch $stopwatch = new Stopwatch())
     {
