@@ -1,4 +1,4 @@
-## [Unreleased] - 2025-05-03
+## [3.0.0] - 2025-05-03
 
 ### Changed
 - [#342](https://github.com/norberttech/symfony-process-executor/pull/342) - **Updated dependencies and readme** - [@norberttech](https://github.com/norberttech)
